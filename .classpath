@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="melibrary.com.genuitec.eclipse.j2eedt.core.MYECLIPSE_JAVAEE_5_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/db"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/3"/>
+	<classpathentry kind="lib" path="E:/software/ArcGIS/Desktop10.1/java/lib/arcobjects.jar"/>
+	<classpathentry kind="lib" path="src/jarFolder/arcobjects.jar"/>
+	<classpathentry kind="lib" path="src/jarFolder/neuroph-adapters-2.9.jar"/>
+	<classpathentry kind="lib" path="src/jarFolder/neuroph-contrib-2.9.jar"/>
+	<classpathentry kind="lib" path="src/jarFolder/neuroph-core-2.9.jar"/>
+	<classpathentry kind="lib" path="src/jarFolder/neuroph-imgrec-2.9.jar"/>
+	<classpathentry kind="lib" path="src/jarFolder/neuroph-ocr-2.9.jar"/>
+	<classpathentry kind="lib" path="src/jarFolder/neuroph-samples-2.9.jar"/>
+	<classpathentry kind="lib" path="src/jarFolder/ojdbc14.jar"/>
+	<classpathentry kind="lib" path="src/jarFolder/sdoapi.jar"/>
+	<classpathentry kind="lib" path="src/jarFolder/sdoutl.jar"/>
+	<classpathentry kind="lib" path="src/jarFolder/slf4j-api-1.5.8.jar"/>
+	<classpathentry kind="lib" path="src/jarFolder/slf4j-log4j12-1.5.6.jar"/>
+	<classpathentry kind="lib" path="src/jarFolder/slf4j-simple-1.5.8.jar"/>
+	<classpathentry kind="lib" path="F:/360云盘/software/jar包/jexcel/jexcelapi/jxl.jar"/>
+	<classpathentry kind="lib" path="F:/360云盘/software/jar包/org.apache.commons/commons-lang-2.4-bin/commons-lang-2.4/commons-lang-2.4.jar"/>
+	<classpathentry kind="lib" path="F:/360云盘/software/jar包/org.apache.commons/commons-lang-2.4-bin/commons-lang-2.4/commons-lang-2.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="F:/360云盘/software/jar包/org.apache.commons/commons-lang-2.4-bin/commons-lang-2.4/commons-lang-2.4-sources.jar"/>
+	<classpathentry kind="lib" path="F:/faming/myeclipseWorkspace/roadNetworkTest/jarFolder/poi-3.9-20121203.jar"/>
+	<classpathentry kind="lib" path="F:/faming/myeclipseWorkspace/roadNetworkTest/jarFolder/poi-examples-3.9-20121203.jar"/>
+	<classpathentry kind="lib" path="F:/faming/myeclipseWorkspace/roadNetworkTest/jarFolder/poi-excelant-3.9-20121203.jar"/>
+	<classpathentry kind="lib" path="F:/faming/myeclipseWorkspace/roadNetworkTest/jarFolder/poi-ooxml-3.9-20121203.jar"/>
+	<classpathentry kind="lib" path="F:/faming/myeclipseWorkspace/roadNetworkTest/jarFolder/poi-ooxml-schemas-3.9-20121203.jar"/>
+	<classpathentry kind="lib" path="F:/faming/myeclipseWorkspace/roadNetworkTest/jarFolder/poi-scratchpad-3.9-20121203.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/java"/>
+	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
+</classpath>
