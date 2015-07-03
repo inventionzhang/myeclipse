@@ -50,9 +50,9 @@ public class CopyOfHalfHourAdaptAdaptMainFunctionANNInputLengthDegreeRatioExpect
 
 	public static void main(String[] args) {
 
-		new CopyOfHalfHourAdaptAdaptMainFunctionANNInputLengthDegreeRatioExpectationDeviation().obtainLinkTravelInfosOnWeekdays(88);//获得目标路段在周一、二或二者某天的数据
+//		new CopyOfHalfHourAdaptAdaptMainFunctionANNInputLengthDegreeRatioExpectationDeviation().obtainLinkTravelInfosOnWeekdays(88);//获得目标路段在周一、二或二者某天的数据
 //		new CopyOfHalfHourAdaptAdaptMainFunctionANNInputLengthDegreeRatioExpectationDeviation().allLinkTravelCharacteristicCalculation();//计算所有路段速度期望、速度标准差		
-//		new CopyOfHalfHourAdaptAdaptMainFunctionANNInputLengthDegreeRatioExpectationDeviation().allLinkANNInputAndNormalizeInput();
+		new CopyOfHalfHourAdaptAdaptMainFunctionANNInputLengthDegreeRatioExpectationDeviation().allLinkANNInputAndNormalizeInput();
 		
 		
 		
@@ -277,8 +277,8 @@ public class CopyOfHalfHourAdaptAdaptMainFunctionANNInputLengthDegreeRatioExpect
 				link1Degree = tEdge1.getFirstLevelConnEdgeArray().size();
 				link1Length = tEdge1.getEdgeLength();
 				double temp = (double)targetLinkDegree/link1Degree;
-				double similarity = Double.parseDouble(String.format("%.2f", temp));
-				double lengthRate = Double.parseDouble(String.format("%.2f", targetLinkLength/link1Length));
+				double similarity = Double.parseDouble(String.format("%.4f", temp));
+				double lengthRate = Double.parseDouble(String.format("%.4f", targetLinkLength/link1Length));
 				double targetAdjacentLinkTravelTimeSameDirection[] = new double[3];//目标路段同方向信息   分别存储目标路段、邻接路段行程时间以及两者之间比值
 				double[]expectationStandardDeviSameDirection = new double[2];//目标路段同方向 邻接路段link1ID速度期望与标准差				
 				int sameDirection = PubParameter.sameDirection;
@@ -296,8 +296,8 @@ public class CopyOfHalfHourAdaptAdaptMainFunctionANNInputLengthDegreeRatioExpect
 					double[]inputInfos = new double[14];
 					inputInfos[0] = targetLinkID;//目标路段ID
 					inputInfos[1] = link1ID;//邻接路段ID					
-					inputInfos[2] = Double.parseDouble(String.format("%.2f", targetLinkLength));//目标路段长度
-					inputInfos[3] = Double.parseDouble(String.format("%.2f", link1Length));//邻接路段长度
+					inputInfos[2] = Double.parseDouble(String.format("%.4f", targetLinkLength));//目标路段长度
+					inputInfos[3] = Double.parseDouble(String.format("%.4f", link1Length));//邻接路段长度
 					inputInfos[4] = targetAdjacentLinkTravelTimeSameDirection[0];//目标路段行程时间
 					inputInfos[5] = targetAdjacentLinkTravelTimeSameDirection[1];//邻接路段行程时间					
 					inputInfos[6] = similarity;
@@ -321,8 +321,8 @@ public class CopyOfHalfHourAdaptAdaptMainFunctionANNInputLengthDegreeRatioExpect
 					double[]inputInfos = new double[14];					
 					inputInfos[0] = targetLinkID;//目标路段
 					inputInfos[1] = link1ID;//邻接路段
-					inputInfos[2] = Double.parseDouble(String.format("%.2f", targetLinkLength));//目标路段长度
-					inputInfos[3] = Double.parseDouble(String.format("%.2f", link1Length));//邻接路段长度
+					inputInfos[2] = Double.parseDouble(String.format("%.4f", targetLinkLength));//目标路段长度
+					inputInfos[3] = Double.parseDouble(String.format("%.4f", link1Length));//邻接路段长度
 					inputInfos[4] = targetAdjacentLinkTravelTimeAntiDirection[0];//目标路段行程时间	
 					inputInfos[5] = targetAdjacentLinkTravelTimeAntiDirection[1];//邻接路段行程时间					
 					inputInfos[6] = similarity;
@@ -405,7 +405,7 @@ public class CopyOfHalfHourAdaptAdaptMainFunctionANNInputLengthDegreeRatioExpect
 				int linkID = edge.getEdgeID();
 				int linkDegree = edge.getFirstLevelConnEdgeArray().size();
 				double tempLinkLength = edge.getEdgeLength();
-				String tempLinkLengthStr = String.format("%.2f", tempLinkLength);
+				String tempLinkLengthStr = String.format("%.4f", tempLinkLength);
 				double processLinkLength = Double.parseDouble(tempLinkLengthStr);				
 				ArrayList<LinkTravelCharacteristic> linkSpeedExpectationStandardDeviationArrayList = new ArrayList<LinkTravelCharacteristic>();
 				speedExpectationAndStandardDeviationCalculation(linkID,linkSpeedExpectationStandardDeviationArrayList,infosArrayList);
@@ -782,14 +782,14 @@ public class CopyOfHalfHourAdaptAdaptMainFunctionANNInputLengthDegreeRatioExpect
 					double temp2 = linkLength2/speedExpe2;//邻接路段行程时间
 					if (Math.abs(temp2) > 0.000001) {
 						double tempTravelTimeRate = temp1/temp2;
-						travelTimeRate = Double.parseDouble(String.format("%.2f", tempTravelTimeRate));
-						double ttemp1 = Double.parseDouble(String.format("%.2f", temp1));
-						double ttemp2 = Double.parseDouble(String.format("%.2f", temp2));
+						travelTimeRate = Double.parseDouble(String.format("%.4f", tempTravelTimeRate));
+						double ttemp1 = Double.parseDouble(String.format("%.4f", temp1));
+						double ttemp2 = Double.parseDouble(String.format("%.4f", temp2));
 						targetAdjacentLinkTravelTime[0] = ttemp1;
 						targetAdjacentLinkTravelTime[1] = ttemp2;
 						targetAdjacentLinkTravelTime[2] = travelTimeRate;
-						double prospeedExpe2 = Double.parseDouble(String.format("%.2f", speedExpe2));
-						double prospeedStandardDevi2 = Double.parseDouble(String.format("%.2f", speedStandardDevi2));
+						double prospeedExpe2 = Double.parseDouble(String.format("%.4f", speedExpe2));
+						double prospeedStandardDevi2 = Double.parseDouble(String.format("%.4f", speedStandardDevi2));
 						expectationStandardDevi[0] = prospeedExpe2;
 						expectationStandardDevi[1] = prospeedStandardDevi2;
 						flag = true;
@@ -838,7 +838,7 @@ public class CopyOfHalfHourAdaptAdaptMainFunctionANNInputLengthDegreeRatioExpect
 					double linkLength1 = Double.parseDouble(linkLengthStr1);							
 					if (Math.abs(speedExpe1) > 0.000001) {
 						double tempTravelTime = linkLength1/speedExpe1;								
-						travelTime = Double.parseDouble(String.format("%.2f", tempTravelTime));
+						travelTime = Double.parseDouble(String.format("%.4f", tempTravelTime));
 						flag = true;
 						break;
 					}					
@@ -890,8 +890,8 @@ public class CopyOfHalfHourAdaptAdaptMainFunctionANNInputLengthDegreeRatioExpect
 					double speedExpe1 = Double.parseDouble(speedExpeStr1);
 					double speedStandardDevi1 = Double.parseDouble(speedStandardDeviStr1);
 					if (Math.abs(speedExpe1) > 0.000001 && Math.abs(speedStandardDevi1) > 0.000001) {							
-						double speedExpectation = Double.parseDouble(String.format("%.2f", speedExpe1));
-						double standardDevi = Double.parseDouble(String.format("%.2f", speedStandardDevi1));
+						double speedExpectation = Double.parseDouble(String.format("%.4f", speedExpe1));
+						double standardDevi = Double.parseDouble(String.format("%.4f", speedStandardDevi1));
 						expectationStandardDevi[0] = speedExpectation;
 						expectationStandardDevi[1] = standardDevi;
 						flag = true;
