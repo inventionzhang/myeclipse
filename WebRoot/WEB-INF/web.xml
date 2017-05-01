@@ -1,14 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
-<web-app>
-    <display-name>BlazeDS</display-name>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name></display-name>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ServletTra</servlet-name>
+    <servlet-class>org.lmars.network.servlet.ServletTra</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ServletJG</servlet-name>
+    <servlet-class>org.lmars.network.servlet.ServletJG</servlet-class>
+  </servlet>
+
+
+  <servlet-mapping>
+    <servlet-name>ServletTra</servlet-name>
+    <url-pattern>/servlet/ServletTra</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ServletJG</servlet-name>
+    <url-pattern>/servlet/ServletJG</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  
+  
+  <display-name>BlazeDS</display-name>
     <description>BlazeDS Application</description>
     <context-param>
    		<param-name>log4jConfigLocation</param-name>
     	<param-value>classpath:log4j.properties</param-value>
 	</context-param>
 	<context-param>
-    	<param-name>entity.MyServletContextListener</param-name>
+    	<param-name>org.lmars.network.entity.MyServletContextListener</param-name>
         <param-value>/WEB-INF/applicationContext-*.xml,classpath*:applicationContext-*.xml</param-value>
 	</context-param>
 
@@ -18,90 +45,27 @@
     </listener>
     
     <listener>
-      <listener-class>entity.MyServletContextListener</listener-class>
+      <listener-class>org.lmars.network.entity.MyServletContextListener</listener-class>
     </listener>
-
-    <!-- MessageBroker Servlet -->
-    <servlet>
-        <servlet-name>MessageBrokerServlet</servlet-name>
-        <display-name>MessageBrokerServlet</display-name>
-        <servlet-class>flex.messaging.MessageBrokerServlet</servlet-class>
-        <init-param>
-            <param-name>services.configuration.file</param-name>
-            <param-value>/WEB-INF/flex/services-config.xml</param-value>
-       </init-param>
-        <load-on-startup>1</load-on-startup>
-    </servlet>   
-    <servlet>
-        <servlet-name>RDSDispatchServlet</servlet-name>
-		<display-name>RDSDispatchServlet</display-name>
-        <servlet-class>flex.rds.server.servlet.FrontEndServlet</servlet-class>
-		<init-param>
-			<param-name>useAppserverSecurity</param-name>
-			<param-value>false</param-value>
-		</init-param>        
-        <load-on-startup>10</load-on-startup>
-    </servlet>
-    <servlet>
-    	<servlet-name>AxisServlet</servlet-name>
-		<display-name>Apache-Axis Servlet</display-name>	
-		<servlet-class>org.apache.axis2.transport.http.AxisServlet</servlet-class>
-	</servlet>	
-	<servlet>
- 		<servlet-name>AxisAdminServlet</servlet-name>
- 		<display-name>Apache-Axis AxisAdmin Servlet (Web Admin)</display-name>
- 		<servlet-class>org.apache.axis2.webapp.AxisAdminServlet</servlet-class>
-	</servlet>
+   
 	<!--servlet>  
     	<servlet-name>MyServlet</servlet-name>
     	<display-name>MyServlet</display-name>
    		<servlet-class>mapMatchingGPS.MyServlet</servlet-class>  
    		<load-on-startup>1</load-on-startup>
   	</servlet-->
-	<servlet-mapping>
-		<servlet-name>AxisServlet</servlet-name>
-		<url-pattern>/servlet/AxisServlet</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>AxisServlet</servlet-name>
-    	<url-pattern>*.jws</url-pattern>
-	</servlet-mapping>	
-	<servlet-mapping>
-		<servlet-name>AxisServlet</servlet-name>
-		<url-pattern>/services/*</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>AxisAdminServlet</servlet-name>
-  		<url-pattern>/axis2-admin/*</url-pattern>
-	</servlet-mapping>
-    <servlet-mapping id="RDS_DISPATCH_MAPPING">
-        <servlet-name>RDSDispatchServlet</servlet-name>
-        <url-pattern>/CFIDE/main/ide.cfm</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>MessageBrokerServlet</servlet-name>
-        <url-pattern>/messagebroker/*</url-pattern>
-    </servlet-mapping>
+	
     
     <mime-mapping>
  		<extension>inc</extension>
  		<mime-type>text/plain</mime-type>
 	</mime-mapping>
     <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
-        <welcome-file>index.htm</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 
-    <!-- for WebSphere deployment, please uncomment -->
-    <!--
-    <resource-ref>
-        <description>Flex Messaging WorkManager</description>
-        <res-ref-name>wm/MessagingWorkManager</res-ref-name>
-        <res-type>com.ibm.websphere.asynchbeans.WorkManager</res-type>
-        <res-auth>Container</res-auth>
-        <res-sharing-scope>Shareable</res-sharing-scope>
-    </resource-ref>
-    -->
-    
+
+
 
 </web-app>
