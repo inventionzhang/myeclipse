@@ -1,0 +1,151 @@
+#
+# An unexpected error has been detected by Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x6d90df57, pid=14980, tid=18332
+#
+# Java VM: Java HotSpot(TM) Client VM (11.0-b15 mixed mode windows-x86)
+# Problematic frame:
+# V  [jvm.dll+0x5df57]
+#
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x023c4c00):  VMThread [stack: 0x0c4e0000,0x0c530000] [id=18332]
+
+siginfo: ExceptionCode=0xc0000005, reading address 0x0000003a
+
+Registers:
+EAX=0x02345170, EBX=0x023451ac, ECX=0x0000002e, EDX=0x6da8c108
+ESP=0x0c52f598, EBP=0x0015f0a0, ESI=0x086b0608, EDI=0x086b0608
+EIP=0x6d90df57, EFLAGS=0x00010287
+
+Top of Stack: (sp=0x0c52f598)
+0x0c52f598:   086b0608 086b0608 6da2ecc0 6d8ce6eb
+0x0c52f5a8:   086b0608 0c52f5f0 0c52f5f0 00000002
+0x0c52f5b8:   02342320 6d95f8b1 086b0710 02344fc8
+0x0c52f5c8:   6d95f681 02345170 6d92e9e3 0c52f5f0
+0x0c52f5d8:   00000000 02342378 086b0710 6d95f497
+0x0c52f5e8:   0c52f5f0 00000000 6da948c8 086b0710
+0x0c52f5f8:   00000000 6d95a123 086b0710 086b0710
+0x0c52f608:   00000000 0c52f720 00000000 6d9ef6a3 
+
+Instructions: (pc=0x6d90df57)
+0x6d90df47:   cc cc cc cc cc cc cc cc cc 51 56 8b f1 8b 4e 04
+0x6d90df57:   8b 51 0c 83 c1 08 8b c2 c1 f8 02 85 d2 89 54 24 
+
+
+Stack: [0x0c4e0000,0x0c530000],  sp=0x0c52f598,  free space=317k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x5df57]
+
+VM_Operation (0x01ccf7d8): GenCollectForAllocation, mode: safepoint, requested by thread 0x0015dc00
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x02404c00 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=18160, stack(0x0cdd0000,0x0ce20000)]
+  0x0c782800 JavaThread "CompilerThread0" daemon [_thread_blocked, id=11932, stack(0x0ccc0000,0x0cd10000)]
+  0x0c776800 JavaThread "JDWP Command Reader" daemon [_thread_in_native, id=14060, stack(0x0cc70000,0x0ccc0000)]
+  0x0c776000 JavaThread "JDWP Event Helper Thread" daemon [_thread_blocked, id=14300, stack(0x0cb30000,0x0cb80000)]
+  0x0c774800 JavaThread "JDWP Transport Listener: dt_socket" daemon [_thread_blocked, id=9704, stack(0x0caa0000,0x0caf0000)]
+  0x02404800 JavaThread "Attach Listener" daemon [_thread_blocked, id=17804, stack(0x0c720000,0x0c770000)]
+  0x02404000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=17732, stack(0x0c690000,0x0c6e0000)]
+  0x023cd000 JavaThread "Finalizer" daemon [_thread_blocked, id=11360, stack(0x0c600000,0x0c650000)]
+  0x023c8400 JavaThread "Reference Handler" daemon [_thread_blocked, id=17832, stack(0x0c570000,0x0c5c0000)]
+  0x0015dc00 JavaThread "main" [_thread_blocked, id=6408, stack(0x01c80000,0x01cd0000)]
+
+Other Threads:
+=>0x023c4c00 VMThread [stack: 0x0c4e0000,0x0c530000] [id=18332]
+  0x0c781000 WatcherThread [stack: 0x0ce80000,0x0ced0000] [id=11448]
+
+VM state:at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x0015c108] UNKNOWN - owner thread: 0x023c4c00
+[0x0015c568] UNKNOWN - owner thread: 0x0015dc00
+
+Heap
+ def new generation   total 4544K, used 4543K [0x044a0000, 0x04980000, 0x04980000)
+  eden space 4096K, 100% used [0x044a0000, 0x048a0000, 0x048a0000)
+  from space 448K,  99% used [0x04910000, 0x0497ffd0, 0x04980000)
+  to   space 448K,   0% used [0x048a0000, 0x048a0000, 0x04910000)
+ tenured generation   total 60544K, used 60543K [0x04980000, 0x084a0000, 0x084a0000)
+   the space 60544K,  99% used [0x04980000, 0x0849ffa0, 0x084a0000, 0x084a0000)
+ compacting perm gen  total 12288K, used 3525K [0x084a0000, 0x090a0000, 0x0c4a0000)
+   the space 12288K,  28% used [0x084a0000, 0x08811518, 0x0880d200, 0x090a0000)
+No shared spaces configured.
+
+Dynamic libraries:
+0x00400000 - 0x00424000 	C:\Program Files (x86)\Java\jdk1.6.0_10\bin\javaw.exe
+0x777b0000 - 0x77930000 	C:\Windows\SysWOW64\ntdll.dll
+0x76f50000 - 0x77060000 	C:\Windows\syswow64\kernel32.dll
+0x75a00000 - 0x75a47000 	C:\Windows\syswow64\KERNELBASE.dll
+0x75960000 - 0x75a00000 	C:\Windows\syswow64\ADVAPI32.dll
+0x76600000 - 0x766ac000 	C:\Windows\syswow64\msvcrt.dll
+0x768f0000 - 0x76909000 	C:\Windows\SysWOW64\sechost.dll
+0x77180000 - 0x77270000 	C:\Windows\syswow64\RPCRT4.dll
+0x74cb0000 - 0x74d10000 	C:\Windows\syswow64\SspiCli.dll
+0x74ca0000 - 0x74cac000 	C:\Windows\syswow64\CRYPTBASE.dll
+0x76770000 - 0x76870000 	C:\Windows\syswow64\USER32.dll
+0x76340000 - 0x763d0000 	C:\Windows\syswow64\GDI32.dll
+0x77140000 - 0x7714a000 	C:\Windows\syswow64\LPK.dll
+0x76560000 - 0x765fd000 	C:\Windows\syswow64\USP10.dll
+0x75d10000 - 0x75d70000 	C:\Windows\system32\IMM32.DLL
+0x76d40000 - 0x76e0c000 	C:\Windows\syswow64\MSCTF.dll
+0x7c340000 - 0x7c396000 	C:\Program Files (x86)\Java\jdk1.6.0_10\jre\bin\msvcr71.dll
+0x6d8b0000 - 0x6db06000 	C:\Program Files (x86)\Java\jdk1.6.0_10\jre\bin\client\jvm.dll
+0x76130000 - 0x76162000 	C:\Windows\syswow64\WINMM.dll
+0x72b00000 - 0x72b4c000 	C:\Windows\system32\apphelp.dll
+0x6d330000 - 0x6d338000 	C:\Program Files (x86)\Java\jdk1.6.0_10\jre\bin\hpi.dll
+0x766b0000 - 0x766b5000 	C:\Windows\syswow64\PSAPI.DLL
+0x6d420000 - 0x6d449000 	C:\Program Files (x86)\Java\jdk1.6.0_10\jre\bin\jdwp.dll
+0x6d750000 - 0x6d756000 	C:\Program Files (x86)\Java\jdk1.6.0_10\jre\bin\npt.dll
+0x6d860000 - 0x6d86c000 	C:\Program Files (x86)\Java\jdk1.6.0_10\jre\bin\verify.dll
+0x6d3d0000 - 0x6d3ef000 	C:\Program Files (x86)\Java\jdk1.6.0_10\jre\bin\java.dll
+0x6d8a0000 - 0x6d8af000 	C:\Program Files (x86)\Java\jdk1.6.0_10\jre\bin\zip.dll
+0x6d2a0000 - 0x6d2a7000 	C:\Program Files (x86)\Java\jdk1.6.0_10\jre\bin\dt_socket.dll
+0x76520000 - 0x76555000 	C:\Windows\syswow64\WS2_32.dll
+0x75af0000 - 0x75af6000 	C:\Windows\syswow64\NSI.dll
+0x746f0000 - 0x74700000 	C:\Windows\system32\NLAapi.dll
+0x745f0000 - 0x74600000 	C:\Windows\system32\napinsp.dll
+0x6e640000 - 0x6e652000 	C:\Windows\system32\pnrpnsp.dll
+0x72810000 - 0x7284c000 	C:\Windows\System32\mswsock.dll
+0x72cc0000 - 0x72d04000 	C:\Windows\system32\DNSAPI.dll
+0x70d30000 - 0x70d38000 	C:\Windows\System32\winrnr.dll
+0x73000000 - 0x7301c000 	C:\Windows\system32\IPHLPAPI.DLL
+0x72ff0000 - 0x72ff7000 	C:\Windows\system32\WINNSI.DLL
+0x70180000 - 0x701b8000 	C:\Windows\System32\fwpuclnt.dll
+0x70db0000 - 0x70db6000 	C:\Windows\system32\rasadhlp.dll
+0x728c0000 - 0x728c5000 	C:\Windows\System32\wshtcpip.dll
+
+VM Arguments:
+jvm_args: -agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:21122 -Dfile.encoding=GBK -Xbootclasspath/p:E:\eclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_9.0.0.me201106292137\data\libraryset\EE_5\javaee.jar;E:\eclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_9.0.0.me201106292137\data\libraryset\EE_5\jsf-impl.jar;E:\eclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_9.0.0.me201106292137\data\libraryset\EE_5\jsf-api.jar;E:\eclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_9.0.0.me201106292137\data\libraryset\EE_5\jstl-1.2.jar 
+java_command: sparseData.AdaptMainFunctionANNInputLengthDegreeRatioExpectationDeviation
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files (x86)\Java\jdk1.6.0_10
+PATH=C:\Program Files (x86)\Java\jdk1.6.0_10\jre\bin;E:\software\product\11.2.0\client_1\bin;C:\ProgramData\Oracle\Java\javapath;E:\oracle\product\10.2.0\client_1\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\DTS\Binn\;e:\Program Files\MATLAB\R2012a\runtime\win64;e:\Program Files\MATLAB\R2012a\bin;C:\Program Files (x86)\Java\jdk1.6.0_10\bin;E:\Program Files (x86)\TortoiseSVN\bin;C:\Program Files (x86)\Java\jdk1.6.0_10\lib\dt.jar;C:\Program Files (x86)\Java\jdk1.6.0_10\lib\tools.jar;E:\apache-tomcat-6.0.35\common\lib\servlet.jar;ArcGIS Desktop\java\lib;ArcGIS Desktop\java\jre;ArcGIS Desktop\bin;E:\software\matlab\runtime\win64;E:\software\matlab\bin;C:\Program Files (x86)\IDM Computer Solutions\UltraEdit\;C:\Program Files (x86)\DBank\ClickUp;C:\Program Files (x86)\DBank\ClickUp
+USERNAME=whu
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 37 Stepping 5, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows NT 6.1 Build 7601 Service Pack 1
+
+CPU:total 4 (8 cores per cpu, 2 threads per core) family 6 model 5 stepping 5, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, ht
+
+Memory: 4k page, physical 4194303k(2822420k free), swap 4194303k(4194303k free)
+
+vm_info: Java HotSpot(TM) Client VM (11.0-b15) for windows-x86 JRE (1.6.0_10-rc2-b32), built on Sep 12 2008 00:52:11 by "java_re" with MS VC++ 7.1
+
+time: Wed Apr 15 20:49:35 2015
+elapsed time: 356 seconds
+
