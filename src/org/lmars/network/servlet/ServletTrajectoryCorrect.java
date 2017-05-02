@@ -2,6 +2,7 @@ package org.lmars.network.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -15,6 +16,9 @@ import org.lmars.network.mapMatchingGPS.MapMatchAlgorithm;
 import org.lmars.network.mapMatchingGPS.ReturnGPSAndPath;
 import org.lmars.network.mapMatchingGPS.ReturnMatchNode;
 import org.lmars.network.mapMatchingGPS.TaxiGPS;
+
+
+import org.lmars.network.service.ServiceTrajectoryCorrect;
 
 import net.sf.json.JSONObject;
 import net.sf.json.JSONArray;
@@ -68,17 +72,24 @@ public class ServletTrajectoryCorrect extends HttpServlet {
 			response.setHeader("Access-Control-Allow-Origin", "*");
 			request.setCharacterEncoding("UTF-8");
 	        String byValue = request.getParameter("byValue");
-	        JSONObject JSONObj = JSONObject.fromObject(byValue);
+//	        JSONObject JSONObj = JSONObject.fromObject(byValue);
 	        
-//	        SplitRoad splitRoad = new SplitRoad();
-//	        JSONObject jsonObjResult = splitRoad.getCoordinatesCorrect(JSONObj);	        
-//	        String result = jsonObjResult.toString();
-//	        System.out.println(result);
-//	        ServletOutputStream outputStream = response.getOutputStream();
-//			String content = result;
-//			outputStream.write(content.getBytes("UTF-8"));
-//			outputStream.flush();
-//			outputStream.close();
+	        ServiceTrajectoryCorrect trajectoryCorr = new ServiceTrajectoryCorrect();
+	        JSONArray jsonArray = trajectoryCorr.trajectoryCorrect(byValue);
+	        Iterator <Object> it = jsonArray.iterator();
+            while (it.hasNext()) {
+                JSONObject json = (JSONObject)it.next();
+                double corrLon = (Double)json.get("corrLon");
+                double corrLat = (Double)json.get("corrLat");
+                String timeStamp = (String)json.get("timeStamp");
+            } 
+	        String result = jsonArray.toString();
+	        System.out.println(result);
+	        ServletOutputStream outputStream = response.getOutputStream();
+			String content = result;
+			outputStream.write(content.getBytes("UTF-8"));
+			outputStream.flush();
+			outputStream.close();
 		} catch (Exception e) {
 			System.out.println("获取信息错误："+e.getMessage());
 			ServletOutputStream outputStream = response.getOutputStream();
