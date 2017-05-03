@@ -2,7 +2,6 @@ package org.lmars.network.mapMatchingGPS;
 
 import java.io.Serializable;
 import java.util.ArrayList;  
-import com.esri.arcgis.geometry.IPolyline;
   
 /* 表示一个节点以及和这个节点相连的所有节点 */ 
 public class MapMatchNode implements Serializable

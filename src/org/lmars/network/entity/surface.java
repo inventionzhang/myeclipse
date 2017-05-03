@@ -5,8 +5,6 @@ import java.util.List;
 
 import com.esri.arcgis.geometry.IPoint;
 import com.esri.arcgis.geometry.IPointCollection;
-import com.esri.arcgis.geometry.IPolygon;
-import com.esri.arcgis.geometry.IRing;
 
 
 public class surface implements Serializable{
@@ -15,7 +13,7 @@ public class surface implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 3222439054382016515L;
-	public int polygonID=0;//√ÊID
+	public int polygonID=0;
 	public List<Double> xx = new ArrayList<Double>();
 	public List<Double> yy = new ArrayList<Double>();
 	

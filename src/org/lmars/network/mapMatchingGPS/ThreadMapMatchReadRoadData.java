@@ -54,12 +54,12 @@ public class ThreadMapMatchReadRoadData extends Thread {
 //	 {
 //		 try {
 //				float startRead=System.currentTimeMillis();	
-//				System.out.print(pcsName+"开始读数据："+startRead+"\n");
+//				System.out.print(pcsName+""+startRead+"\n");
 //				readSDEData startReadSDEData=new readSDEData();
-//				ArrayList<Node> juncArraylist=new ArrayList<Node>();//节点
-//				ArrayList<Edge> polylineCollArrayList=new ArrayList<Edge>();//线
-//				ArrayList<surface> surfaceArrayList=new ArrayList<surface>();//面
-//				ArrayList<roadName>roadNameArrayList=new ArrayList<roadName>();//道路名
+//				ArrayList<Node> juncArraylist=new ArrayList<Node>();//
+//				ArrayList<Edge> polylineCollArrayList=new ArrayList<Edge>();//
+//				ArrayList<surface> surfaceArrayList=new ArrayList<surface>();//
+//				ArrayList<roadName>roadNameArrayList=new ArrayList<roadName>();//
 //				
 //				juncArraylist= roadNetworkAnalysisImpl.instance().allJuncArraylistMap.get(pcsName);
 //				polylineCollArrayList=roadNetworkAnalysisImpl.instance().allPolylineCollArraylistMap.get(pcsName);
@@ -67,21 +67,21 @@ public class ThreadMapMatchReadRoadData extends Thread {
 //				roadNameArrayList = roadNetworkAnalysisImpl.instance().allRoadNameArrayMap.get(pcsName);
 //				startReadSDEData.readData(pcsName,junctionData,splitLineData, polygonData,surfaceArrayList, juncArraylist, polylineCollArrayList,roadNameArrayList);	
 //				float endRead=System.currentTimeMillis();
-//				System.out.print(pcsName+"结束读数据："+endRead+"\n");
+//				System.out.print(pcsName+""+endRead+"\n");
 //				float readTime=(endRead-startRead)/1000;
-//				System.out.print(pcsName+"读数据时间:"+readTime+"\n");
+//				System.out.print(pcsName+":"+readTime+"\n");
 //				float startTopo=System.currentTimeMillis();
-//				System.out.print("开始构建拓扑："+startTopo+"\n");
+//				System.out.print(""+startTopo+"\n");
 //				createTopology(pcsName);
 //				
 //				float endTopo=System.currentTimeMillis();
-//				System.out.print("拓扑构建结束："+endTopo+"\n");	
-//				System.out.print("拓扑构建时间"+"\n");
+//				System.out.print(""+endTopo+"\n");	
+//				System.out.print(""+"\n");
 //				float time=(float)((endTopo-startTopo)/1000);
 //				System.out.print(time);	
 //				this.stop();
 //			} catch (Exception e) {
-//				System.out.print(pcsName+"读取数据失败!"+"\n");
+//				System.out.print(pcsName+"!"+"\n");
 //			}		
 //	 }
 //	 

@@ -10,6 +10,6 @@ public class StorageTaxiInfos implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = -2168688835870182482L;
-	public Map<String, ArrayList<TaxiGPS>> taxiInfosMap = null;//³ö×â³µIDÒÑ¾­¶ÔÓ¦µÄĞÅÏ¢
+	public Map<String, ArrayList<TaxiGPS>> taxiInfosMap = null;//å‡ºç§Ÿè½¦è½¨è¿¹ä¿¡æ¯
 	
 }

@@ -22,7 +22,7 @@ import org.lmars.network.entity.DataBaseType;
 
 
 public class JDBCConnectionCreator {
-	//该对象的唯一引用
+	//
 	private static JDBCConnectionCreator singleton=null;
 	private Map<String,DataSource> dsList;
 	private Context envCtx;

@@ -1,7 +1,6 @@
 package org.lmars.network.mapMatchingGPS;
 
 /**
- * 线程互相等待
  * @author whu
  *
  */

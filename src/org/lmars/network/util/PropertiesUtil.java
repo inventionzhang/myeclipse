@@ -11,7 +11,7 @@ import java.util.Properties;
 
 public class PropertiesUtil {
 	/**
-	 * 获取properties中的配置属性
+	 * 
 	 * @param sKey
 	 * @return
 	 */

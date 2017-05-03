@@ -3,13 +3,13 @@ package org.lmars.network.mapMatchingGPS;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-/*´æ´¢³ö×â³µÊý¾ÝÔªÐÅÏ¢*/
+/*ï¿½æ´¢ï¿½ï¿½ï¿½â³µï¿½ï¿½ï¿½Ôªï¿½ï¿½Ï¢*/
 public class StorageTaxiMetadata implements Serializable{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1553006828462748222L;
-	public ArrayList<String> taxiIDArrayList = null;//³ö×â³µIDÐÅÏ¢
+	public ArrayList<String> taxiIDArrayList = null;
 
 }

@@ -17,8 +17,6 @@ import org.lmars.network.util.PubClass;
 import org.lmars.network.util.TimeOperateFunction;
 import org.lmars.network.util.setOperateFunction;
 
-import com.esri.arcgis.geoprocessing.tools.analyst3dtools.Int;
-
 public class DataPreprocess {
 	
 	public static void main(String[] args) {
