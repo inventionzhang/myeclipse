@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="GB2312" ?>
+<project default="jar" name="Acid">
+
+	<property name="thirdlib.dir" value="../GPSCorrectCore/libs" />
+	<property name="core.classes.dir" value="../GPSCorrectCore/bin" />
+	<property name="server.classes.dir" value="./bin" />
+	<property name="server.conf.dir" value="./conf" />
+	<property name="data.road.dir" value="../Data/labelPoint/BM2" />
+	
+	<property name="workspace.dir" value="Publish/JGServer" />
+	<property name="bin.dir" value="Publish/JGServer/bin" />
+	<property name="lib.dir" value="Publish/JGServer/lib" />
+	<property name="conf.dir" value="Publish/JGServer/conf" />
+	<property name="data.dir" value="Publish/JGServer/data" />
+
+	<property name="core.jarname" value="GPSCorrectCore.jar" />
+	<property name="server.jarname" value="JGRoadServer.jar" />
+
+	<property name="server.shell.startname" value="startServer.bat" />
+		
+	<property name="TrackServer.mainclass" value="org.lmars.jg.service.RoadHttpServer" />
+		
+	<!-- 1. 初始化工作，如创建目录等 -->
+	<target name="init">
+		<mkdir dir="${bin.dir}" />
+		<mkdir dir="${lib.dir}" />
+		<mkdir dir="${conf.dir}" />
+		<mkdir dir="${data.dir}" />	
+	</target>
+
+	<!-- 2. copy第三方jar包的路径 -->
+	<copydir dest="${lib.dir}" src="${thirdlib.dir}">
+	</copydir>
+
+	<!-- 3. copy配置文件 -->
+	<copydir dest="${conf.dir}" src="${server.conf.dir}">
+	</copydir>
+	
+	<!-- 3. copy路网 -->
+	<copydir dest="${data.dir}" src="${data.road.dir}">
+	</copydir>
+		
+	<!-- 6. 打包jar文件 -->
+	<target name="jar">
+		
+		<!-- 打包GPSCorrectCore-->
+		<jar destfile="${lib.dir}/${core.jarname}" basedir="${core.classes.dir}">
+		</jar>
+			
+		<!-- 6.5 打包JGRoadServer.jar-->
+		<!-- 第三方jar包的路径 -->
+		<path id="lib-classpath">
+			<fileset dir="${lib.dir}">
+				<include name="**/*.jar" />
+			</fileset>
+		</path>
+		<!--Create a property containing all .jar files,prefix lib/, and seperated with a space-->
+		<pathconvert property="mf.classpath" pathsep=" ">
+			<mapper>
+				<chainedmapper>
+					<!-- jar包文件只留文件名，去掉目录信息 -->
+					<flattenmapper />
+				</chainedmapper>
+			</mapper>
+			<path refid="lib-classpath" />
+		</pathconvert>
+		<!-- jar文件的输出路径 -->
+		<jar destfile="${lib.dir}/${server.jarname}" basedir="${server.classes.dir}">
+			<manifest>
+				<attribute name="Main-class" value="${TrackServer.mainclass}" />
+				<attribute name="Class-Path" value="${mf.classpath}" />
+			</manifest>
+		</jar>
+		
+		<!-- 7 执行语句到shell-->
+		<delete file="${bin.dir}/${server.shell.startname}" />
+		<echo message="cd .." file="${bin.dir}/${server.shell.startname}" append="true" />
+		<echo message="${line.separator}" file="${bin.dir}/${server.shell.startname}" append="true" />
+		<echo message="java -Xms3000M -Xmx8000M -Dengine.conf=./conf/engine.ini -jar ./lib/${server.jarname}" file="${bin.dir}/${server.shell.startname}" append="true" />
+		
+	</target>
+</project>

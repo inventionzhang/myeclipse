@@ -2,16 +2,6 @@ package org.lmars.network.service;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
-
-
-
-
-/**
- * 交管局的服务
- * @author faming
- * 2016年10月7日
- *
- */
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
@@ -84,7 +74,8 @@ public class ServiceTrajectoryCorrect {
             while ((line = in.readLine()) != null) {
                 result += line;
             }
-            System.out.print(result + '\n');
+            System.out.print("纠正坐标：" + result + '\n');
+            System.out.print("高德坐标：");
             jsonArray = JSONArray.fromObject(result);
             Iterator <Object> it = jsonArray.iterator();
             while (it.hasNext()) {

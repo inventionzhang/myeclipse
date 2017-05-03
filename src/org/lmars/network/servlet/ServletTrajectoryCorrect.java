@@ -10,14 +10,6 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.lmars.network.mapMatchingGPS.DatabaseFunction;
-import org.lmars.network.mapMatchingGPS.MapMatchAlgorithm;
-import org.lmars.network.mapMatchingGPS.ReturnGPSAndPath;
-import org.lmars.network.mapMatchingGPS.ReturnMatchNode;
-import org.lmars.network.mapMatchingGPS.TaxiGPS;
-
-
 import org.lmars.network.service.ServiceTrajectoryCorrect;
 
 import net.sf.json.JSONObject;
