@@ -51,16 +51,15 @@ public class ServiceTrajectoryCorrect {
 			String askString = inputString;
 			HttpURLConnection conn = null;
 			BufferedReader in = null;
-			BufferedWriter out = null;       	
-//        	URL realUrl = new URL("http://192.168.106.111:10891/split/server");//访问IP
-			URL realUrl = new URL("http://localhost:10891/trajectoryCorrect/server");//编码服务IP
+			BufferedWriter out = null;
+			URL realUrl = new URL("http://localhost:10891/trajectoryCorrect/server");//轨迹纠正服务IP
             conn=(HttpURLConnection)realUrl.openConnection();
             conn.setRequestMethod("POST");
             conn.setDoInput(true);
             conn.setDoOutput(true);
             conn.setRequestProperty("connection", "Keep-Alive");
             conn.setRequestProperty("Charsert", "UTF-8");  
-            conn.setInstanceFollowRedirects(true);    
+            conn.setInstanceFollowRedirects(true);
             conn.setRequestProperty("Content-Type","application/x-www-form-urlencoded");   
             conn.setConnectTimeout(3000);
             conn.connect();
@@ -74,9 +73,10 @@ public class ServiceTrajectoryCorrect {
             while ((line = in.readLine()) != null) {
                 result += line;
             }
-            System.out.print("纠正坐标：" + result + '\n');
-            System.out.print("高德坐标：");
+            System.out.print("纠正坐标：" + result + '\n');         
             jsonArray = JSONArray.fromObject(result);
+            
+            System.out.print("高德坐标：");
             Iterator <Object> it = jsonArray.iterator();
             while (it.hasNext()) {
                 JSONObject json = (JSONObject)it.next();
@@ -100,7 +100,7 @@ public class ServiceTrajectoryCorrect {
 	         e.printStackTrace();
 	         return null;
 		}
-		 return jsonArrayConvGD;
+		 return jsonArray;
 	}
 	
 	public static void main(String[] args){
