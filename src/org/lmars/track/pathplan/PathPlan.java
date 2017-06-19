@@ -25,6 +25,7 @@ public class PathPlan {
 		ArrayList<MapNode> openList = new ArrayList<MapNode>();//开启列表
 		int iteraCount = 0;
 		iteraCount = 0;
+		iteraCount = 0;
 		ArrayList<ReturnMatchNode> tempReturnMapMatchPathArrayList = new ArrayList<ReturnMatchNode>();
 		ArrayList<Integer[]> tempEidArrayList = new ArrayList<Integer[]>();
 		new RoadNetwork().obtainShortestPath(stack,openList,null,sNode, sNode, eNode,
