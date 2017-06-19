@@ -22,7 +22,8 @@ public class ServiceTrajectoryCorrect {
 		JSONArray jsonArrayConvGD = new JSONArray();//转换为高德坐标的GPS 
 		try {			
 			//读文件中gps轨迹数据
-			String originFileName = "G:\\faming\\myeclipseWorkspace\\Data\\trajectoryData\\taxi20416trajectory0602_test.txt";
+//			String originFileName = "G:\\faming\\myeclipseWorkspace\\Data\\trajectoryData\\taxi20416trajectory0602_test.txt";
+			String originFileName = "G:\\faming\\myeclipseWorkspace\\Data\\trajectoryData\\taxi20416trajectory0602.txt";
 			List<String> infosArrayList = new ArrayList<String>();
 			ArrayList<String> convInfos = new ArrayList<String>();
 			FileOperateFunction.readFromTxtFile(originFileName, infosArrayList);
@@ -73,7 +74,7 @@ public class ServiceTrajectoryCorrect {
             while ((line = in.readLine()) != null) {
                 result += line;
             }
-            System.out.print("纠正坐标：" + result + '\n');         
+            System.out.print("纠正坐标：" + result + '\n');       
             jsonArray = JSONArray.fromObject(result);
             
             System.out.print("高德坐标：");

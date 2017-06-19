@@ -23,7 +23,8 @@ public class ServiceTrajectorySelect {
 		JSONArray jsonArray = new JSONArray();
 		try {			
 			//读文件中gps轨迹数据
-			String originFileName = "G:\\faming\\myeclipseWorkspace\\Data\\trajectoryData\\taxi20416trajectory0602_test.txt";
+//			String originFileName = "G:\\faming\\myeclipseWorkspace\\Data\\trajectoryData\\taxi20416trajectory0602_test.txt";
+			String originFileName = "G:\\faming\\myeclipseWorkspace\\Data\\trajectoryData\\taxi20416trajectory0602.txt";
 			List<String> infosArrayList = new ArrayList<String>();
 			FileOperateFunction.readFromTxtFile(originFileName, infosArrayList);
 			String gpsString = "";
